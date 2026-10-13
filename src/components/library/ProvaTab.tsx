@@ -50,7 +50,7 @@ export default function ProvaTab({
           color: '#fff',
         }}
       >
-        <span style={{ fontSize: 10, fontWeight: 700 }}>
+        <span style={{ fontSize: 11.5, fontWeight: 700 }}>
           {examAnsweredCount}/{examQuestions.length} respondidas
           {examAnsweredCount === examQuestions.length && (
             <span style={{ marginLeft: 10, color: '#9bc9b8' }}>
@@ -62,7 +62,7 @@ export default function ProvaTab({
           {examAnsweredCount === examQuestions.length && (
             <button
               className="primary-button"
-              style={{ minHeight: 30, padding: '0 12px', fontSize: 10, background: '#fff', color: 'var(--teal-dark)' }}
+              style={{ minHeight: 30, padding: '0 12px', fontSize: 11.5, background: '#fff', color: 'var(--teal-dark)' }}
               onClick={() => setExamScoreVisible((v) => !v)}
             >
               {examScoreVisible ? 'Ocultar resumo' : 'Ver resumo'}
@@ -70,7 +70,7 @@ export default function ProvaTab({
           )}
           <button
             className="secondary-button"
-            style={{ minHeight: 30, padding: '0 12px', fontSize: 10, background: 'transparent', color: '#fff', borderColor: '#2e5a4f' }}
+            style={{ minHeight: 30, padding: '0 12px', fontSize: 11.5, background: 'transparent', color: '#fff', borderColor: '#2e5a4f' }}
             onClick={resetExam}
           >
             Reiniciar prova
@@ -103,7 +103,7 @@ export default function ProvaTab({
               }}
             >
               <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', gap: 10 }}>
-                <p style={{ margin: 0, fontSize: 11, color: 'var(--ink)', lineHeight: 1.55, fontWeight: 600 }}>
+                <p style={{ margin: 0, fontSize: 12.5, color: 'var(--ink)', lineHeight: 1.55, fontWeight: 600 }}>
                   <span style={{ color: 'var(--teal)' }}>{q.id}.</span> {q.statement}
                 </p>
               </div>
@@ -152,7 +152,7 @@ export default function ProvaTab({
                           borderRadius: 6,
                           background: isAnswered && isCorrectOpt ? 'var(--teal-dark)' : '#edf1ee',
                           color: isAnswered && isCorrectOpt ? '#fff' : '#63716b',
-                          fontSize: 9,
+                          fontSize: 10.5,
                           fontWeight: 800,
                           display: 'grid',
                           placeItems: 'center',
@@ -160,7 +160,7 @@ export default function ProvaTab({
                       >
                         {opt.letter}
                       </span>
-                      <span style={{ fontSize: 10, color: 'var(--ink)', lineHeight: 1.45 }}>{opt.text}</span>
+                      <span style={{ fontSize: 11.5, color: 'var(--ink)', lineHeight: 1.45 }}>{opt.text}</span>
                       {isAnswered && isCorrectOpt && <CheckCircle2 size={13} color="#137158" style={{ marginLeft: 'auto', flex: 'none' }} />}
                       {isAnswered && isChosen && !isCorrectOpt && <XCircle size={13} color="#aa4e38" style={{ marginLeft: 'auto', flex: 'none' }} />}
                     </button>
@@ -177,10 +177,10 @@ export default function ProvaTab({
                     background: chosen === q.correct ? '#eef8f3' : '#fff3ec',
                   }}
                 >
-                  <strong style={{ fontSize: 9, color: chosen === q.correct ? '#137158' : '#aa4e38' }}>
+                  <strong style={{ fontSize: 10.5, color: chosen === q.correct ? '#137158' : '#aa4e38' }}>
                     {chosen === q.correct ? 'CORRETO' : `INCORRETO — a resposta certa é ${q.correct}`}
                   </strong>
-                  <p style={{ margin: '4px 0 0', fontSize: 10, color: '#53625b', lineHeight: 1.55 }}>{q.explanation}</p>
+                  <p style={{ margin: '4px 0 0', fontSize: 11.5, color: '#53625b', lineHeight: 1.55 }}>{q.explanation}</p>
                 </div>
               )}
             </div>

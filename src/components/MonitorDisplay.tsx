@@ -232,7 +232,7 @@ export function EcgStrip({ rhythmKey }: { rhythmKey: EcgRhythmKey }) {
           background: '#fff',
           borderTop: '1px solid #f0dede',
           color: '#8a7470',
-          fontSize: 8,
+          fontSize: 9,
           fontWeight: 700,
           letterSpacing: '.08em',
           textTransform: 'uppercase',
@@ -255,7 +255,7 @@ export function CtFindingDisplay({ finding }: { finding: string }) {
           justifyContent: 'center',
           background: 'repeating-conic-gradient(#e9e9ec 0% 25%, #dcdce1 0% 50%) 50% / 12px 12px',
           color: '#50565c',
-          fontSize: 9,
+          fontSize: 10.5,
           fontWeight: 700,
           letterSpacing: '.06em',
           textTransform: 'uppercase',
@@ -265,7 +265,7 @@ export function CtFindingDisplay({ finding }: { finding: string }) {
       >
         Tomografia de crânio sem contraste (ilustrativa)
       </div>
-      <div style={{ padding: '8px 10px', background: '#fff', fontSize: 10, color: 'var(--ink)' }}>{finding}</div>
+      <div style={{ padding: '8px 10px', background: '#fff', fontSize: 11.5, color: 'var(--ink)' }}>{finding}</div>
     </div>
   )
 }

@@ -41,7 +41,7 @@ export default function QuizTab({ revealedQuiz, toggleQuizReveal }: QuizTabProps
                     borderRadius: 6,
                     background: '#edf1ee',
                     color: '#63716b',
-                    fontSize: 9,
+                    fontSize: 10.5,
                     fontWeight: 800,
                     display: 'grid',
                     placeItems: 'center',
@@ -50,7 +50,7 @@ export default function QuizTab({ revealedQuiz, toggleQuizReveal }: QuizTabProps
                   {idx + 1}
                 </span>
                 <div style={{ flex: 1 }}>
-                  <p style={{ margin: 0, fontSize: 11, color: 'var(--ink)', lineHeight: 1.5 }}>{q.statement}</p>
+                  <p style={{ margin: 0, fontSize: 12.5, color: 'var(--ink)', lineHeight: 1.5 }}>{q.statement}</p>
                   {isOpen && (
                     <div style={{ marginTop: 9, display: 'flex', gap: 7, alignItems: 'flex-start' }}>
                       {q.answer ? (
@@ -59,14 +59,14 @@ export default function QuizTab({ revealedQuiz, toggleQuizReveal }: QuizTabProps
                         <XCircle size={14} color="#aa4e38" style={{ flex: 'none', marginTop: 1 }} />
                       )}
                       <div>
-                        <strong style={{ fontSize: 10, color: q.answer ? '#137158' : '#aa4e38' }}>
+                        <strong style={{ fontSize: 11.5, color: q.answer ? '#137158' : '#aa4e38' }}>
                           {q.answer ? 'VERDADEIRO' : 'FALSO'}
                         </strong>
-                        <p style={{ margin: '3px 0 0', fontSize: 10, color: '#53625b', lineHeight: 1.55 }}>{q.explanation}</p>
+                        <p style={{ margin: '3px 0 0', fontSize: 11.5, color: '#53625b', lineHeight: 1.55 }}>{q.explanation}</p>
                       </div>
                     </div>
                   )}
-                  {!isOpen && <span style={{ fontSize: 8, color: '#8b9690', fontWeight: 700 }}>CLIQUE PARA VER A RESPOSTA</span>}
+                  {!isOpen && <span style={{ fontSize: 9, color: '#8b9690', fontWeight: 700 }}>CLIQUE PARA VER A RESPOSTA</span>}
                 </div>
               </div>
             </button>

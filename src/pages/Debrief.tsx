@@ -87,7 +87,7 @@ export default function Debrief() {
               : 'Média das classificações de cada decisão tomada'}
           </p>
           {attempts > 1 && (
-            <p style={{ marginTop: 4, display: 'flex', alignItems: 'center', gap: 4, color: '#79857f', fontSize: 10, fontWeight: 650 }}>
+            <p style={{ marginTop: 4, display: 'flex', alignItems: 'center', gap: 4, color: '#79857f', fontSize: 11.5, fontWeight: 650 }}>
               <History size={10} />
               {attempts}ª tentativa neste caso
               {previousBest !== null && ` · melhor: ${Math.max(previousBest, scorePct)}/100`}

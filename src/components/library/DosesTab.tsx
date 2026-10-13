@@ -21,7 +21,7 @@ export default function DosesTab() {
             <div className="resource-card-top">
               <span className="resource-brand">SINAIS PREMONITÓRIOS</span>
             </div>
-            <p style={{ fontSize: 9, color: '#77847e', margin: '6px 0 10px' }}>Podem anteceder a parada — fique atento.</p>
+            <p style={{ fontSize: 10.5, color: '#77847e', margin: '6px 0 10px' }}>Podem anteceder a parada — fique atento.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
               {premonitorySigns.map((s) => (
                 <span key={s} className="vital-chip">{s}</span>
@@ -32,7 +32,7 @@ export default function DosesTab() {
             <div className="resource-card-top">
               <span className="resource-brand" style={{ color: '#aa4e38' }}>SINAIS COMPROBATÓRIOS</span>
             </div>
-            <p style={{ fontSize: 9, color: '#77847e', margin: '6px 0 10px' }}>Confirmam a PCR — inicie as compressões imediatamente.</p>
+            <p style={{ fontSize: 10.5, color: '#77847e', margin: '6px 0 10px' }}>Confirmam a PCR — inicie as compressões imediatamente.</p>
             <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
               {confirmatorySigns.map((s) => (
                 <span key={s} className="vital-chip">{s}</span>
@@ -60,7 +60,7 @@ export default function DosesTab() {
                       borderRadius: '50%',
                       background: 'var(--teal-dark)',
                       color: '#fff',
-                      fontSize: 8,
+                      fontSize: 9,
                       fontWeight: 800,
                       display: 'grid',
                       placeItems: 'center',
@@ -69,8 +69,8 @@ export default function DosesTab() {
                     {c.letter}
                   </span>
                   <div>
-                    <strong style={{ fontSize: 10, color: 'var(--ink)' }}>{c.name}</strong>
-                    <p style={{ margin: '2px 0 0', fontSize: 9, color: '#5f6e67', lineHeight: 1.5 }}>{c.hint}</p>
+                    <strong style={{ fontSize: 11.5, color: 'var(--ink)' }}>{c.name}</strong>
+                    <p style={{ margin: '2px 0 0', fontSize: 10.5, color: '#5f6e67', lineHeight: 1.5 }}>{c.hint}</p>
                   </div>
                 </div>
               ))}
@@ -91,7 +91,7 @@ export default function DosesTab() {
                       borderRadius: '50%',
                       background: '#a05a40',
                       color: '#fff',
-                      fontSize: 8,
+                      fontSize: 9,
                       fontWeight: 800,
                       display: 'grid',
                       placeItems: 'center',
@@ -100,8 +100,8 @@ export default function DosesTab() {
                     {c.letter}
                   </span>
                   <div>
-                    <strong style={{ fontSize: 10, color: 'var(--ink)' }}>{c.name}</strong>
-                    <p style={{ margin: '2px 0 0', fontSize: 9, color: '#5f6e67', lineHeight: 1.5 }}>{c.hint}</p>
+                    <strong style={{ fontSize: 11.5, color: 'var(--ink)' }}>{c.name}</strong>
+                    <p style={{ margin: '2px 0 0', fontSize: 10.5, color: '#5f6e67', lineHeight: 1.5 }}>{c.hint}</p>
                   </div>
                 </div>
               ))}
@@ -119,9 +119,9 @@ export default function DosesTab() {
                 .filter((d) => d.group === group)
                 .map((d) => (
                   <tr key={d.id} style={{ borderBottom: '1px solid var(--line)' }}>
-                    <td style={{ padding: '8px 10px', fontSize: 11, fontWeight: 700, color: 'var(--ink)', width: '34%' }}>{d.drug}</td>
-                    <td style={{ padding: '8px 10px', fontSize: 11, color: 'var(--teal-dark)', fontWeight: 650 }}>{d.dose}</td>
-                    <td style={{ padding: '8px 10px', fontSize: 9, color: '#77847e' }}>{d.note ?? ''}</td>
+                    <td style={{ padding: '8px 10px', fontSize: 12.5, fontWeight: 700, color: 'var(--ink)', width: '34%' }}>{d.drug}</td>
+                    <td style={{ padding: '8px 10px', fontSize: 12.5, color: 'var(--teal-dark)', fontWeight: 650 }}>{d.dose}</td>
+                    <td style={{ padding: '8px 10px', fontSize: 10.5, color: '#77847e' }}>{d.note ?? ''}</td>
                   </tr>
                 ))}
             </tbody>

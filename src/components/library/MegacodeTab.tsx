@@ -22,7 +22,7 @@ export default function MegacodeTab({
         <div>
           <span className="section-index">COMO A PROVA PRÁTICA É AVALIADA</span>
           <h3>Checklist oficial do Megacode</h3>
-          <p style={{ fontSize: 13, lineHeight: 1.6 }}>
+          <p style={{ fontSize: 15, lineHeight: 1.6 }}>
             Na prova prática (Megacode), um instrutor marca estes critérios enquanto você conduz o caso.
             Não é "acertar o diagnóstico" apenas — é demonstrar cada passo abaixo, em voz alta, na ordem certa.
             Clique nos itens para marcar como feito, igual numa simulação de verdade.
@@ -32,7 +32,7 @@ export default function MegacodeTab({
 
       <div className="resource-card" style={{ marginBottom: 16, background: '#123b34' }}>
         <div className="resource-card-top">
-          <span className="resource-brand" style={{ color: '#9bc9b8', fontSize: 11, letterSpacing: '.08em' }}>
+          <span className="resource-brand" style={{ color: '#9bc9b8', fontSize: 12.5, letterSpacing: '.08em' }}>
             {leaderChecklist.title}
           </span>
         </div>
@@ -62,7 +62,7 @@ export default function MegacodeTab({
                 )}
                 <span
                   style={{
-                    fontSize: 13,
+                    fontSize: 15,
                     color: checked ? '#9bc9b8' : '#eaf4ef',
                     lineHeight: 1.55,
                     textDecoration: checked ? 'line-through' : 'none',
@@ -80,7 +80,7 @@ export default function MegacodeTab({
         {rhythmChecklists.map((group) => (
           <div className="resource-card" key={group.id}>
             <div className="resource-card-top">
-              <span className="resource-brand" style={{ fontSize: 11, letterSpacing: '.08em' }}>{group.title}</span>
+              <span className="resource-brand" style={{ fontSize: 12.5, letterSpacing: '.08em' }}>{group.title}</span>
             </div>
             <div style={{ display: 'grid', gap: 9, marginTop: 12 }}>
               {group.items.map((item, idx) => {
@@ -108,7 +108,7 @@ export default function MegacodeTab({
                     )}
                     <span
                       style={{
-                        fontSize: 12.5,
+                        fontSize: 14.5,
                         color: checked ? '#8b9690' : 'var(--ink)',
                         lineHeight: 1.55,
                         textDecoration: checked ? 'line-through' : 'none',
@@ -125,10 +125,10 @@ export default function MegacodeTab({
       </div>
 
       <div style={{ marginTop: 22 }}>
-        <div className="ecg-group" style={{ marginBottom: 8, display: 'block', fontSize: 11 }}>
+        <div className="ecg-group" style={{ marginBottom: 8, display: 'block', fontSize: 12.5 }}>
           Sequências reais cobradas no Megacode
         </div>
-        <p style={{ fontSize: 12.5, color: '#5f6e67', margin: '0 0 14px', lineHeight: 1.6 }}>
+        <p style={{ fontSize: 14.5, color: '#5f6e67', margin: '0 0 14px', lineHeight: 1.6 }}>
           A prova prática oficial não testa um ritmo isolado — ela encadeia vários ritmos no mesmo cenário,
           exigindo que você reconheça a transição e troque de conduta sem perder o fio da RCP. Clique numa
           sequência para montar o checklist completo daquele cenário.
@@ -166,10 +166,10 @@ export default function MegacodeTab({
                     cursor: 'pointer',
                   }}
                 >
-                  <span style={{ fontSize: 13, fontWeight: 650, color: 'var(--ink)' }}>{s.sequence}</span>
+                  <span style={{ fontSize: 15, fontWeight: 650, color: 'var(--ink)' }}>{s.sequence}</span>
                   <span style={{ display: 'flex', alignItems: 'center', gap: 8, flex: 'none' }}>
                     {checkedCount > 0 && (
-                      <span style={{ fontSize: 11, color: allChecked ? '#137158' : '#8b9690', fontWeight: 700 }}>
+                      <span style={{ fontSize: 12.5, color: allChecked ? '#137158' : '#8b9690', fontWeight: 700 }}>
                         {checkedCount}/{totalItems}
                       </span>
                     )}
@@ -183,7 +183,7 @@ export default function MegacodeTab({
                 {isOpen && (
                   <div style={{ padding: '14px 16px', border: '1px solid var(--line)', borderTop: 0, borderRadius: '0 0 10px 10px', background: '#fff' }}>
                     <div style={{ display: 'grid', gap: 8, marginBottom: 14 }}>
-                      <span style={{ fontSize: 10.5, fontWeight: 800, color: '#65756d', letterSpacing: '.08em' }}>
+                      <span style={{ fontSize: 12, fontWeight: 800, color: '#65756d', letterSpacing: '.08em' }}>
                         LÍDER DA EQUIPE
                       </span>
                       {leaderChecklist.items.map((item, idx) => {
@@ -200,7 +200,7 @@ export default function MegacodeTab({
                             ) : (
                               <Circle size={15} color="#a6b5ae" style={{ flex: 'none', marginTop: 1 }} />
                             )}
-                            <span style={{ fontSize: 12.5, color: checked ? '#8b9690' : 'var(--ink)', lineHeight: 1.55, textDecoration: checked ? 'line-through' : 'none' }}>
+                            <span style={{ fontSize: 14.5, color: checked ? '#8b9690' : 'var(--ink)', lineHeight: 1.55, textDecoration: checked ? 'line-through' : 'none' }}>
                               {item}
                             </span>
                           </button>
@@ -210,7 +210,7 @@ export default function MegacodeTab({
 
                     {scenarioGroups.map((group) => (
                       <div key={group.id} style={{ display: 'grid', gap: 8, marginBottom: 14 }}>
-                        <span style={{ fontSize: 10.5, fontWeight: 800, color: '#65756d', letterSpacing: '.08em' }}>
+                        <span style={{ fontSize: 12, fontWeight: 800, color: '#65756d', letterSpacing: '.08em' }}>
                           {group.title.toUpperCase()}
                         </span>
                         {group.items.map((item, idx) => {
@@ -227,7 +227,7 @@ export default function MegacodeTab({
                               ) : (
                                 <Circle size={15} color="#a6b5ae" style={{ flex: 'none', marginTop: 1 }} />
                               )}
-                              <span style={{ fontSize: 12.5, color: checked ? '#8b9690' : 'var(--ink)', lineHeight: 1.55, textDecoration: checked ? 'line-through' : 'none' }}>
+                              <span style={{ fontSize: 14.5, color: checked ? '#8b9690' : 'var(--ink)', lineHeight: 1.55, textDecoration: checked ? 'line-through' : 'none' }}>
                                 {item}
                               </span>
                             </button>
@@ -248,7 +248,7 @@ export default function MegacodeTab({
                     >
                       <span
                         style={{
-                          fontSize: 13,
+                          fontSize: 15,
                           fontWeight: 800,
                           color: allChecked ? '#137158' : '#aa4e38',
                         }}
@@ -257,7 +257,7 @@ export default function MegacodeTab({
                       </span>
                       <button
                         className="secondary-button"
-                        style={{ minHeight: 30, padding: '0 12px', fontSize: 11 }}
+                        style={{ minHeight: 30, padding: '0 12px', fontSize: 12.5 }}
                         onClick={() => {
                           setMegacodeChecked((prev) => {
                             const next = new Set(prev)
@@ -281,7 +281,7 @@ export default function MegacodeTab({
 
       <div className="ecg-caution" style={{ marginTop: 22 }}>
         <AlertTriangle size={14} />
-        <p style={{ fontSize: 12 }}>
+        <p style={{ fontSize: 14 }}>
           <strong>Importante:</strong> este checklist resume o material oficial de apoio ao provedor ACLS (American Heart Association). Ele orienta o que é avaliado na prova prática — não substitui o manual completo nem o instrutor do seu curso.
         </p>
       </div>
