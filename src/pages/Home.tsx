@@ -1,11 +1,13 @@
 import { useNavigate } from 'react-router-dom'
-import { Activity, Clock, Users, ArrowRight, ChevronRight, BookOpenCheck, ListChecks, Shuffle, EyeOff } from 'lucide-react'
+import { Activity, Clock, Users, ArrowRight, ChevronRight, BookOpenCheck, ListChecks, Shuffle, EyeOff, TrendingUp } from 'lucide-react'
 import { cases, getRandomCase } from '../data/cases'
 import { useSimulation } from '../context/SimulationContext'
+import { getOverallStats } from '../lib/progress'
 
 export default function Home() {
   const navigate = useNavigate()
   const { setCaseId } = useSimulation()
+  const stats = getOverallStats()
 
   const goToCase = (id: string) => {
     setCaseId(id)
@@ -45,6 +47,14 @@ export default function Home() {
             <span>
               <Activity size={14} /> {cases.length} casos disponíveis
             </span>
+            {stats.totalSessions > 0 && (
+              <>
+                <span className="meta-separator" />
+                <span>
+                  <TrendingUp size={14} /> {stats.totalSessions} sessões suas · média {stats.avgScore}/100
+                </span>
+              </>
+            )}
           </div>
         </div>
         <div className="hero-visual">

@@ -1,8 +1,10 @@
 import { useNavigate } from 'react-router-dom'
-import { Award, CheckCircle2, Info, AlertTriangle, RotateCcw, BookOpenCheck, ExternalLink, Eye } from 'lucide-react'
+import { useEffect, useRef, useState } from 'react'
+import { Award, CheckCircle2, Info, AlertTriangle, RotateCcw, BookOpenCheck, ExternalLink, Eye, History } from 'lucide-react'
 import { useSimulation } from '../context/SimulationContext'
 import { getCaseById } from '../data/cases'
 import { externalResources } from '../data/resources'
+import { saveSession, getBestScoreForCase, getAttemptsForCase } from '../lib/progress'
 
 const qualityScore: Record<string, number> = { strong: 100, partial: 60, review: 20 }
 const qualityMarker: Record<string, string> = { strong: 'quality-strong', partial: 'quality-partial', review: 'quality-review' }
@@ -11,6 +13,33 @@ export default function Debrief() {
   const navigate = useNavigate()
   const { caseId, timeline, resetSession, startedAt } = useSimulation()
   const clinicalCase = caseId ? getCaseById(caseId) : undefined
+  const savedRef = useRef(false)
+  const [previousBest, setPreviousBest] = useState<number | null>(null)
+  const [attempts, setAttempts] = useState(0)
+
+  const total = timeline.reduce((sum, t) => sum + (qualityScore[t.quality] ?? 0), 0)
+  const scorePct = timeline.length ? Math.round(total / timeline.length) : 0
+  const strongCount = timeline.filter((t) => t.quality === 'strong').length
+  const reviewCount = timeline.filter((t) => t.quality === 'review').length
+  const durationMin = startedAt ? Math.max(1, Math.round((Date.now() - startedAt) / 60000)) : clinicalCase?.durationMin ?? 0
+
+  useEffect(() => {
+    if (savedRef.current || !clinicalCase || timeline.length === 0) return
+    savedRef.current = true
+    setPreviousBest(getBestScoreForCase(clinicalCase.id))
+    saveSession({
+      caseId: clinicalCase.id,
+      caseTitle: clinicalCase.title,
+      scorePct,
+      strongCount,
+      reviewCount,
+      totalSteps: timeline.length,
+      durationMin,
+      completedAt: Date.now(),
+    })
+    setAttempts(getAttemptsForCase(clinicalCase.id))
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clinicalCase?.id])
 
   if (!clinicalCase || timeline.length === 0) {
     return (
@@ -23,11 +52,7 @@ export default function Debrief() {
     )
   }
 
-  const total = timeline.reduce((sum, t) => sum + (qualityScore[t.quality] ?? 0), 0)
-  const scorePct = Math.round(total / timeline.length)
-  const strongCount = timeline.filter((t) => t.quality === 'strong').length
-  const reviewCount = timeline.filter((t) => t.quality === 'review').length
-  const durationMin = startedAt ? Math.max(1, Math.round((Date.now() - startedAt) / 60000)) : clinicalCase.durationMin
+  const isNewBest = previousBest !== null && scorePct > previousBest
 
   const handleRestart = () => {
     resetSession()
@@ -56,7 +81,18 @@ export default function Debrief() {
           <strong>
             {scorePct}<small>/100</small>
           </strong>
-          <p>Média das classificações de cada decisão tomada</p>
+          <p>
+            {isNewBest
+              ? 'Novo melhor resultado seu nesse caso'
+              : 'Média das classificações de cada decisão tomada'}
+          </p>
+          {attempts > 1 && (
+            <p style={{ marginTop: 4, display: 'flex', alignItems: 'center', gap: 4, color: '#79857f', fontSize: 10, fontWeight: 650 }}>
+              <History size={10} />
+              {attempts}ª tentativa neste caso
+              {previousBest !== null && ` · melhor: ${Math.max(previousBest, scorePct)}/100`}
+            </p>
+          )}
         </div>
         <div className="score-stat">
           <span>Condutas adequadas</span>
