@@ -8,7 +8,7 @@ export interface DoseEntry {
 
 export const doseEntries: DoseEntry[] = [
   { id: 'atropina', group: 'Bradicardia', drug: 'Atropina', dose: '1 mg IV em bolus, repetir a cada 3-5 min até 3 mg', note: 'Não usar em PEA/assistolia (removida dessas diretrizes).' },
-  { id: 'dopamina-brady', group: 'Bradicardia', drug: 'Dopamina (infusão)', dose: '5-10 mcg/kg/min', note: 'Segunda linha, se atropina ineficaz.' },
+  { id: 'dopamina-brady', group: 'Bradicardia', drug: 'Dopamina (infusão)', dose: '5-20 mcg/kg/min', note: 'Segunda linha, se atropina ineficaz. Titular conforme resposta, reduzindo gradualmente.' },
   { id: 'adrenalina-brady', group: 'Bradicardia', drug: 'Adrenalina (infusão)', dose: '2-10 mcg/min' },
   { id: 'adenosina', group: 'Taquicardia', drug: 'Adenosina', dose: '6 mg IV rápido + flush; repetir 12 mg se necessário', note: 'Só para QRS estreito regular. Cuidado em asma (broncoespasmo).' },
   { id: 'cardio-estreito-reg', group: 'Taquicardia', drug: 'Cardioversão — estreito regular (SVT)', dose: '50-100 J sincronizado' },
@@ -17,10 +17,14 @@ export const doseEntries: DoseEntry[] = [
   { id: 'cardio-largo-irreg', group: 'Taquicardia', drug: 'Largo irregular (Torsades/TV polimórfica)', dose: 'Desfibrilação (não sincronizada), carga máxima' },
   { id: 'amiodarona-taqui', group: 'Taquicardia', drug: 'Amiodarona', dose: '150 mg IV em 10 min; manutenção 1 mg/min por 6h' },
   { id: 'magnesio', group: 'Taquicardia', drug: 'Sulfato de magnésio (Torsades)', dose: '1-2 g IV; pode seguir com 0,5-1 g em 60 min' },
+  { id: 'procainamida', group: 'Taquicardia', drug: 'Procainamida (QRS largo estável)', dose: '20-50 mg/min até supressão da arritmia, dose máx. 17 mg/kg; manutenção 1-4 mg/min', note: 'Evitar se QT prolongado ou insuficiência cardíaca.' },
+  { id: 'sotalol', group: 'Taquicardia', drug: 'Sotalol (QRS largo estável)', dose: '100 mg (1,5 mg/kg) IV em 5 min', note: 'Evitar se QT prolongado.' },
   { id: 'desfib-fv-bifasica', group: 'PCR', drug: 'Desfibrilação bifásica (FV/TV sem pulso)', dose: '120-200 J (seguir fabricante); doses seguintes iguais ou maiores' },
   { id: 'desfib-fv-monofasica', group: 'PCR', drug: 'Desfibrilação monofásica', dose: '360 J' },
   { id: 'adrenalina-pcr', group: 'PCR', drug: 'Adrenalina (PCR)', dose: '1 mg IV/IO a cada 3-5 min' },
   { id: 'amiodarona-pcr', group: 'PCR', drug: 'Amiodarona (FV/TV refratária)', dose: '1ª dose 300 mg bolus; 2ª dose 150 mg' },
+  { id: 'lidocaina-pcr', group: 'PCR', drug: 'Lidocaína (alternativa à amiodarona)', dose: '1ª dose 1-1,5 mg/kg; 2ª dose 0,5-0,75 mg/kg', note: 'Equivalente à amiodarona na PCR por FV/TV — usar uma ou outra, não as duas.' },
+  { id: 'acesso-iv-io', group: 'PCR', drug: 'Via de acesso preferencial', dose: 'IV é preferido sobre IO', note: 'Só partir para via intraóssea se o acesso IV falhar (atualização AHA 2020).' },
   { id: 'posicao-pa-direita', group: 'PCR', drug: 'Posição das pás — direita', dose: 'Região infraclavicular direita', note: 'Passar gel nas pás; afastar todos antes do choque.' },
   { id: 'posicao-pa-esquerda', group: 'PCR', drug: 'Posição das pás — esquerda', dose: '5º espaço intercostal esquerdo (ápice do coração)' },
   { id: 'tubo-padrao', group: 'Via Aérea', drug: 'Tubo orotraqueal', dose: '7,5 como referência inicial quando não dá para individualizar rápido', note: 'Idealmente individualizar: homens ~7,5-8,0; mulheres ~7,0-7,5.' },
