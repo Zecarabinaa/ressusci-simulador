@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import {
   Activity,
@@ -51,7 +51,20 @@ export default function Simulation() {
     return () => clearInterval(interval)
   }, [startedAt])
 
-  if (!clinicalCase) {
+  const step = clinicalCase?.steps[stepIndex]
+
+  const shuffledChoices = useMemo(() => {
+    if (!step) return []
+    const arr = [...step.choices]
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1))
+      ;[arr[i], arr[j]] = [arr[j], arr[i]]
+    }
+    return arr
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [clinicalCase?.id, stepIndex])
+
+  if (!clinicalCase || !step) {
     return (
       <div className="page-shell narrow-shell">
         <p>Caso não encontrado.</p>
@@ -59,7 +72,6 @@ export default function Simulation() {
     )
   }
 
-  const step = clinicalCase.steps[stepIndex]
   const chosen = step.choices.find((c) => c.id === chosenId) ?? null
   const isLastStep = stepIndex === clinicalCase.steps.length - 1
   const progressPct = Math.round(((stepIndex + (chosen ? 1 : 0)) / clinicalCase.steps.length) * 100)
@@ -184,7 +196,7 @@ export default function Simulation() {
             )}
 
             <div className="choice-list">
-              {step.choices.map((choice, idx) => {
+              {shuffledChoices.map((choice, idx) => {
                 const isChosen = chosenId === choice.id
                 const letters = ['A', 'B', 'C', 'D']
                 return (
